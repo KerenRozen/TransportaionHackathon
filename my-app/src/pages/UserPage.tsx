@@ -7,10 +7,6 @@ import { FeatureCollection } from "geojson";
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2VyZW5yb3plbiIsImEiOiJjbGlubTllZWQwMGVuM2VvY2s0aG5nYjJ2In0.e2PYx0rwRwVrMpWhnJ9XBA';
 
-// interface UserPageProps {
-//     paths: string,
-//     roadblocks: string,
-// }
 
 // @ts-ignore
 const UserPage = (props) => {
@@ -40,10 +36,6 @@ const UserPage = (props) => {
     // Intermediate stop coordinates (optional)
     const stops = props.paths.stops;
 
-    // Blocked routes or areas (optional)
-    // const blockedRoutes: string[] = [
-    //     "32.05636785529443, 34.77621936177339, 100",
-    // ];
     const blockedRoutesPolygon = props.roadblocks.blocks.map((block: string) => {return strBlockToFloat(block)})
     const blockedRoutes = blockedRoutesPolygon.map((block: number[]) => {
         let strBlock = [block[1], block[2]].join(",");
@@ -213,12 +205,6 @@ const UserPage = (props) => {
                             justifyContent: 'center',}} >
                     <button onClick={findRoute}>Find Route</button>
                 </div>
-                {/*{route && (*/}
-                {/*<div>*/}
-                {/*    <p>Distance: {route.distance} meters</p>*/}
-                {/*    <p>Time: {route.time} seconds</p>*/}
-                {/*</div>*/}
-                {/*)}*/}
             </div>
             <div id="map" style={{ width: '100%', height: '400px' }}></div>
         </>

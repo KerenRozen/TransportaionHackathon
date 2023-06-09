@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 const HomePage = () => {
     const [lineNumber,setLineNumber] = useState("");
-
     return (
         <div>
             <h1>Enter your bus number:</h1>
